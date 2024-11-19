@@ -1,0 +1,31 @@
+# src/main/resources/application.yml
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: reddit_analytics
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/reddit_analytics
+    username: root
+    password: rootpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+reddit:
+  client:
+    id: ${REDDIT_CLIENT_ID}
+    secret: ${REDDIT_CLIENT_SECRET}
+  user-agent: "JavaBot/1.0 (by /u/your_username)"
+  batch:
+    size: 100
+    interval: 5000
+
+logging:
+  level:
+    com.yourusername.redditanalytics: DEBUG
